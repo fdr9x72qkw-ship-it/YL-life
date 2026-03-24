@@ -16,10 +16,10 @@
             --green-dark: #45a049;
             --red: #f44336;
             --red-dark: #da190b;
-            --bg: #f4f6f8;
             --card: rgba(255,255,255,0.95);
             --text: #223;
             --muted: #667085;
+            --border: #cdd6e1;
         }
         html, body {
             margin: 0;
@@ -34,115 +34,106 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
         }
-        .app-shell {
-            width: min(100%, 980px);
-            box-sizing: border-box;
-            padding: 12px 12px calc(env(safe-area-inset-bottom) + 12px);
+        .app-shell{
+            width:min(100%,980px);
+            box-sizing:border-box;
+            padding:12px 12px calc(env(safe-area-inset-bottom) + 12px);
         }
-        .controls {
-            margin: 0 0 10px;
-            padding: 12px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            background: var(--card);
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 8px;
-            z-index: 10;
-            backdrop-filter: blur(8px);
+        .controls{
+            margin:0 0 10px;
+            padding:12px;
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            background:var(--card);
+            border-radius:16px;
+            box-shadow:0 8px 24px rgba(0,0,0,0.08);
+            position:sticky;
+            top:8px;
+            z-index:10;
+            backdrop-filter:blur(8px);
         }
-        .title {
-            width: 100%;
-            text-align: center;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 4px;
+        .title{ width:100%; text-align:center; font-size:22px; font-weight:700; margin-bottom:4px;}
+        .subtitle{ width:100%; text-align:center; font-size:14px; color:var(--muted); margin-top:-2px; margin-bottom:4px;}
+        label{ font-size:17px; font-weight:700;}
+        input{
+            width:72px; height:46px;
+            font-size:28px; text-align:center;
+            border:2px solid #d0d5dd;
+            border-radius:10px;
+            background:#fff;
+            text-transform:uppercase;
         }
-        .subtitle {
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            color: var(--muted);
-            margin-top: -2px;
-            margin-bottom: 4px;
+        input.lower-mode{ text-transform:lowercase;}
+        button{
+            padding:10px 18px;
+            font-size:17px;
+            font-weight:700;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            background:var(--green);
+            color:#fff;
+            transition:0.2s;
         }
-        canvas {
-            background-color: #d3d3d3;
-            border: 5px solid #fff;
-            border-radius: 18px;
-            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
-            cursor: crosshair;
-            touch-action: none;
-            display: block;
-            width: 100%;
-            max-width: 100%;
+        button:hover{ background:var(--green-dark); }
+        .clear-btn{ background:var(--red);}
+        .clear-btn:hover{ background:var(--red-dark);}
+        .mode-toggle{
+            display:flex; gap:8px;
+            padding:2px 6px; border-radius:999px;
+            border:1px solid var(--border);
+            background:#fff;
         }
-        button {
-            padding: 10px 18px;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            background-color: var(--green);
-            color: white;
-            transition: 0.2s;
+        .chip{
+            border:1px solid var(--border);
+            background:#fff;
+            color:#344054;
+            border-radius:999px;
+            padding:8px 12px;
+            font-size:15px;
+            font-weight:700;
+            transition:0.15s;
         }
-        button:hover { background-color: var(--green-dark); }
-        .clear-btn { background-color: var(--red); }
-        .clear-btn:hover { background-color: var(--red-dark); }
-        input {
-            width: 72px;
-            height: 46px;
-            font-size: 28px;
-            text-align: center;
-            border: 2px solid #d0d5dd;
-            border-radius: 10px;
-            background: #fff;
-            text-transform: uppercase;
+        .chip.active{
+            background:#e8f5e9;
+            border-color:#9dd39f;
+            color:#1b5e20;
         }
-        label {
-            font-size: 17px;
-            font-weight: 700;
+        .quick-keys{
+            display:flex;
+            gap:8px;
+            flex-wrap:wrap;
+            justify-content:center;
+            width:100%;
+            margin-top:4px;
         }
-        .quick-keys {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
+        canvas{
+            background-color:#d3d3d3;
+            border:5px solid #fff;
+            border-radius:18px;
+            box-shadow:0 10px 28px rgba(0,0,0,0.12);
+            cursor:crosshair;
+            touch-action:none;
+            display:block;
+            width:100%;
+            max-width:100%;
         }
-        .chip {
-            border: 1px solid #cdd6e1;
-            background: #fff;
-            color: #344054;
-            border-radius: 999px;
-            padding: 8px 12px;
-            font-size: 15px;
-            font-weight: 700;
+        .footer-note{
+            text-align:center;
+            color:var(--muted);
+            font-size:13px;
+            margin-top:10px;
         }
-        .chip.active {
-            background: #e8f5e9;
-            border-color: #9dd39f;
-            color: #1b5e20;
-        }
-        .footer-note {
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-            margin-top: 10px;
-        }
-        @media (max-width: 640px) {
-            .title { font-size: 20px; }
-            .controls { padding: 10px; }
-            button { font-size: 16px; }
-            label { width: 100%; text-align: center; }
+        @media(max-width:640px){
+            .controls{padding:10px;}
+            .title{font-size:20px;}
+            button{font-size:16px;}
+            label{width:100%; text-align:center;}
+            .mode-toggle{width:100%; justify-content:center;}
         }
     </style>
 </head>
@@ -150,157 +141,246 @@
     <div class="app-shell">
         <div class="controls">
             <div class="title">Lily 的英數描寫練習</div>
-            <div class="subtitle">輸入一個字母或數字，直接在灰底上描寫</div>
+            <div class="subtitle">按 A~Z / a~z / 0~9：描就能念</div>
+
             <label for="charInput">練習內容：</label>
-            <input type="text" id="charInput" maxlength="1" value="A" inputmode="text" aria-label="輸入想練習的內容">
-            <button id="updateBtn">更換字母/數字</button>
-            <button class="clear-btn" id="clearBtn">清除畫面</button>
-            <div class="quick-keys" id="quickKeys">
-                <button class="chip active" data-char="A">A</button>
-                <button class="chip" data-char="B">B</button>
-                <button class="chip" data-char="C">C</button>
-                <button class="chip" data-char="1">1</button>
-                <button class="chip" data-char="2">2</button>
-                <button class="chip" data-char="3">3</button>
+            <input id="charInput" type="text" maxlength="1" value="A" inputmode="text" aria-label="輸入想練習的內容">
+
+            <button id="updateBtn" type="button">更新</button>
+            <button id="clearBtn" class="clear-btn" type="button">清除</button>
+            <button id="playBtn" type="button">念一次</button>
+
+            <div id="modeToggle" class="mode-toggle" aria-label="大小寫切換">
+                <button class="chip active" type="button" data-mode="upper">ABC</button>
+                <button class="chip" type="button" data-mode="lower">abc</button>
             </div>
+
+            <div id="quickKeys" class="quick-keys"></div>
         </div>
 
         <canvas id="paintCanvas"></canvas>
-        <div class="footer-note">iPhone 可用 Safari 加到主畫面，之後像 App 一樣開啟。</div>
+        <div class="footer-note">iPhone：用 Safari「加入主畫面」就能像 App 一樣用。</div>
     </div>
 
-    <script>
-        const canvas = document.getElementById('paintCanvas');
-        const ctx = canvas.getContext('2d');
-        const charInput = document.getElementById('charInput');
-        const quickKeys = document.getElementById('quickKeys');
-        const updateBtn = document.getElementById('updateBtn');
-        const clearBtn = document.getElementById('clearBtn');
+<script>
+(function(){
+    const canvas = document.getElementById('paintCanvas');
+    const ctx = canvas.getContext('2d');
+    const charInput = document.getElementById('charInput');
+    const quickKeys = document.getElementById('quickKeys');
+    const updateBtn = document.getElementById('updateBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const playBtn = document.getElementById('playBtn');
+    const modeToggle = document.getElementById('modeToggle');
 
-        let painting = false;
-        let scale = Math.max(1, window.devicePixelRatio || 1);
+    const lettersUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const lettersLower = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    const digits = '0123456789'.split('');
 
-        function resizeCanvas() {
-            const controlsHeight = document.querySelector('.controls').offsetHeight || 140;
-            const cssWidth = Math.min(window.innerWidth - 24, 956);
-            const cssHeight = Math.max(window.innerHeight - controlsHeight - 44, 320);
+    let mode = 'upper';
+    let painting = false;
+    let scale = Math.max(1, window.devicePixelRatio || 1);
 
-            canvas.style.width = cssWidth + 'px';
-            canvas.style.height = cssHeight + 'px';
-            canvas.width = Math.floor(cssWidth * scale);
-            canvas.height = Math.floor(cssHeight * scale);
-            ctx.setTransform(scale, 0, 0, scale, 0, 0);
-            drawTraceText();
+    function isLetter(ch){ return /^[A-Za-z]$/.test(ch); }
+    function isDigit(ch){ return /^[0-9]$/.test(ch); }
+    function defaultChar(){ return mode === 'lower' ? 'a' : 'A'; }
+
+    function normalizeChar(raw){
+        if(!raw) return defaultChar();
+        const c = String(raw)[0];
+        if(isDigit(c)) return c;
+        if(isLetter(c)) return mode === 'lower' ? c.toLowerCase() : c.toUpperCase();
+        return defaultChar();
+    }
+
+    function updateActiveChip(){
+        const value = charInput.value || '';
+        quickKeys.querySelectorAll('.chip').forEach(btn=>{
+            btn.classList.toggle('active', btn.dataset.char === value);
+        });
+    }
+
+    function pickVoice(){
+        if(!('speechSynthesis' in window)) return null;
+        const voices = window.speechSynthesis.getVoices() || [];
+        let en = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+        return en || voices[0] || null;
+    }
+
+    function speakChar(ch){
+        if(!('speechSynthesis' in window)) return;
+        const t = normalizeChar(ch);
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(t);
+        u.rate = 0.9;
+        u.pitch = 0.9;
+        const v = pickVoice();
+        if(v) u.voice = v;
+        window.speechSynthesis.speak(u);
+    }
+
+    function drawTraceText(){
+        const c = normalizeChar(charInput.value);
+        charInput.value = c;
+        const w = canvas.width / scale;
+        const h = canvas.height / scale;
+        ctx.clearRect(0,0,w,h);
+
+        const size = Math.min(w,h) * 0.6;
+        ctx.save();
+        ctx.font = `bold ${size}px Arial`;
+        ctx.fillStyle = 'rgba(255,255,255,0.48)';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(c, w/2, h/2);
+        ctx.restore();
+    }
+
+    function clearCanvas(){
+        drawTraceText();
+        updateActiveChip();
+    }
+
+    function updateCanvas(doSpeak){
+        charInput.value = normalizeChar(charInput.value);
+        charInput.classList.toggle('lower-mode', mode === 'lower');
+        drawTraceText();
+        updateActiveChip();
+        if(doSpeak) speakChar(charInput.value);
+    }
+
+    function resizeCanvas(){
+        const controlsHeight = document.querySelector('.controls').offsetHeight || 140;
+        const cssWidth = Math.min(window.innerWidth - 24, 956);
+        const cssHeight = Math.max(window.innerHeight - controlsHeight - 44, 320);
+
+        canvas.style.width = cssWidth + 'px';
+        canvas.style.height = cssHeight + 'px';
+        canvas.width = Math.floor(cssWidth * scale);
+        canvas.height = Math.floor(cssHeight * scale);
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        drawTraceText();
+    }
+
+    function startPosition(e){
+        painting = true;
+        ctx.beginPath();
+        draw(e);
+    }
+    function finishedPosition(){
+        painting = false;
+        ctx.beginPath();
+    }
+    function draw(e){
+        if(!painting) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = (e.clientX || e.pageX) - rect.left;
+        const y = (e.clientY || e.pageY) - rect.top;
+        ctx.lineWidth = 20;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#333';
+        ctx.lineTo(x,y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+    }
+
+    function handleTouchStart(e){
+        e.preventDefault();
+        if(e.touches.length>0) startPosition(e.touches[0]);
+    }
+    function handleTouchMove(e){
+        e.preventDefault();
+        if(e.touches.length>0) draw(e.touches[0]);
+    }
+    function handleTouchEnd(e){
+        e.preventDefault();
+        finishedPosition();
+    }
+
+    function buildQuickKeys(){
+        quickKeys.innerHTML = '';
+        const letters = mode === 'lower' ? lettersLower : lettersUpper;
+        letters.forEach(ch=>{
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'chip';
+            btn.dataset.char = ch;
+            btn.textContent = ch;
+            quickKeys.appendChild(btn);
+        });
+        digits.forEach(ch=>{
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'chip';
+            btn.dataset.char = ch;
+            btn.textContent = ch;
+            quickKeys.appendChild(btn);
+        });
+        updateActiveChip();
+    }
+
+    function setMode(newMode){
+        if(newMode === mode) return;
+        mode = newMode;
+        const c = charInput.value;
+        charInput.value = normalizeChar(c);
+        charInput.classList.toggle('lower-mode', mode === 'lower');
+        buildQuickKeys();
+        updateCanvas(false);
+        modeToggle.querySelectorAll('.chip').forEach(btn=>{
+            btn.classList.toggle('active', btn.dataset.mode === mode);
+        });
+    }
+
+    function init(){
+        resizeCanvas();
+        buildQuickKeys();
+        updateActiveChip();
+
+        window.addEventListener('resize', resizeCanvas);
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', finishedPosition);
+        canvas.addEventListener('mouseleave', finishedPosition);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchstart', handleTouchStart, {passive:false});
+        canvas.addEventListener('touchend', handleTouchEnd, {passive:false});
+        canvas.addEventListener('touchcancel', handleTouchEnd, {passive:false});
+        canvas.addEventListener('touchmove', handleTouchMove, {passive:false});
+
+        charInput.addEventListener('input', ()=>{ updateCanvas(false); });
+        charInput.addEventListener('keydown', e=>{ if(e.key==='Enter') updateCanvas(true); });
+
+        updateBtn.addEventListener('click', ()=> updateCanvas(true));
+        clearBtn.addEventListener('click', clearCanvas);
+        playBtn.addEventListener('click', ()=> speakChar(charInput.value));
+
+        quickKeys.addEventListener('click', e=>{
+            const btn = e.target.closest('.chip');
+            if(!btn) return;
+            charInput.value = btn.dataset.char;
+            updateCanvas(true);
+        });
+
+        modeToggle.addEventListener('click', e=>{
+            const btn = e.target.closest('[data-mode]');
+            if(!btn) return;
+            setMode(btn.dataset.mode);
+        });
+
+        if('speechSynthesis' in window){
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.onvoiceschanged = ()=>{};
         }
 
-        function init() {
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-            canvas.addEventListener('mousedown', startPosition);
-            canvas.addEventListener('mouseup', finishedPosition);
-            canvas.addEventListener('mouseleave', finishedPosition);
-            canvas.addEventListener('mousemove', draw);
-            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
-            canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
-            canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
-            canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
-            updateBtn.addEventListener('click', updateCanvas);
-            clearBtn.addEventListener('click', clearCanvas);
-            charInput.addEventListener('input', () => {
-                charInput.value = (charInput.value || 'A').slice(0,1).toUpperCase();
-                syncQuickKey();
-            });
-            charInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') updateCanvas();
-            });
-            quickKeys.addEventListener('click', (e) => {
-                const btn = e.target.closest('[data-char]');
-                if (!btn) return;
-                charInput.value = btn.dataset.char;
-                syncQuickKey();
-                updateCanvas();
-            });
-
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed', err));
-            }
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('sw.js').catch(()=>{});
         }
+    }
 
-        function syncQuickKey() {
-            const value = (charInput.value || '').toUpperCase();
-            document.querySelectorAll('.chip').forEach(chip => {
-                chip.classList.toggle('active', chip.dataset.char.toUpperCase() === value);
-            });
-        }
-
-        function handleTouchStart(e) {
-            e.preventDefault();
-            if (e.touches.length > 0) startPosition(e.touches[0]);
-        }
-
-        function handleTouchMove(e) {
-            e.preventDefault();
-            if (e.touches.length > 0) draw(e.touches[0]);
-        }
-
-        function handleTouchEnd(e) {
-            e.preventDefault();
-            finishedPosition();
-        }
-
-        function drawTraceText() {
-            const char = (charInput.value || 'A').toUpperCase();
-            const width = canvas.width / scale;
-            const height = canvas.height / scale;
-            ctx.clearRect(0, 0, width, height);
-
-            const size = Math.min(width, height) * 0.6;
-            ctx.save();
-            ctx.font = `bold ${size}px Arial`;
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.48)';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(char, width / 2, height / 2);
-            ctx.restore();
-        }
-
-        function startPosition(e) {
-            painting = true;
-            ctx.beginPath();
-            draw(e);
-        }
-
-        function finishedPosition() {
-            painting = false;
-            ctx.beginPath();
-        }
-
-        function draw(e) {
-            if (!painting) return;
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            ctx.lineWidth = 20;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            ctx.strokeStyle = '#333';
-            ctx.lineTo(x, y);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-        }
-
-        function clearCanvas() {
-            drawTraceText();
-        }
-
-        function updateCanvas() {
-            charInput.value = (charInput.value || 'A').slice(0,1).toUpperCase();
-            syncQuickKey();
-            drawTraceText();
-        }
-
-        window.onload = init;
-    </script>
+    window.addEventListener('load', init);
+})();
+</script>
 </body>
 </html>

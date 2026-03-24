@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lily-trace-v1';
+const CACHE_NAME = 'lily-trace-v2';
 const URLS_TO_CACHE = [
   './',
   './index.html',
